@@ -11,6 +11,7 @@
     transition: 200ms ease;
     z-index: 9999;
     overflow: visible;
+    font-size: .75rem;
   }
 
   .navbar:hover {

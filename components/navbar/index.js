@@ -63,9 +63,12 @@ export default function Navbar({children, ...restProps}) {
             <Image src="/tramanda-logo-dark.svg" layout='fill'></Image>
           </div>
           <div className={styles.menu}>
-            <Link href="/">Link</Link>
-            <Link href="/">Link</Link>
-            <Link href="/">Link</Link>
+            <Link href="/">Gifts</Link>
+            <Link href="/">What's New</Link>
+            <Link href="/">Men</Link>
+            <Link href="/">Women</Link>
+            <Link href="/">Children</Link>
+            <Link href="/">About</Link>
           </div>
         </div>
         <div className={styles.userArea}>
