@@ -10,26 +10,53 @@
     position: fixed;
     transition: 200ms ease;
     z-index: 9999;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .navbar:hover {
-    background: #102322
+    background: #1c2e36;
   }
 
   .active {
-    background: #102322;
+    background: #1c2e36;
   }
 
   .active .logo{
     display:none;
   }
-  
-  .contact {
+
+  .leftNav {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex: 1;
+    margin-left: 1rem;
+  }
+
+  .leftNav li {
+    margin: .5rem;
+  }
+  .leftNav li:hover {
+    cursor: pointer;
+  }
+
+  .dropdown {
+    display: flex;
+    padding: 0.0625rem;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background: #344e58;
+    border-radius: 6pt;
+  }
+
+  .dropdown li {
+    border-radius: 6pt;
+    padding: .5rem 1rem;
+  }
+
+  .dropdown li:hover {
+    background: #1c2e36;
   }
   
   .contact p {
