@@ -1,5 +1,4 @@
 import react, { useState, useEffect } from 'react'
-import classNames from 'classnames'
 import styles from './styles/Navbar.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -9,14 +8,13 @@ function NavDropdown(props) {
   const [open, setOpen] = useState(false);
 
   return (
-    <li className={styles.dropdownContainer} onMouseEnter={() => setOpen(!open)} onMouseLeave={() => setOpen(!open)}>
+    <li className={styles.dropdownContainer} onClick={() => setOpen(!open)} onMouseLeave={() => setOpen(false)}>
       <span>{props.title}</span>
         {open && 
           <div className={styles.dropdown} onMouseLeave={() => setOpen(!open)}>
             {props.children}
           </div>
         }
-        
     </li>
   );
 
@@ -43,19 +41,25 @@ export default function Navbar({children, ...restProps}) {
           <li className={styles.contact}>
             <Link href="/">51 995-672-388</Link>
           </li>
-          <NavDropdown title="Location">
+          {!navbar &&
+            <NavDropdown title="Location">
             <ul>
               <li>Rio Grande do Sul</li>
               <li>Rio de Janeiro</li>
               <li>São Paulo</li>
             </ul>
           </NavDropdown>
+          }
+          {!navbar &&
           <NavDropdown title="Language">
-            <ul>
-              <li>Português Brasileiro</li>
-              <li>Inglês</li>
-            </ul>
-          </NavDropdown>
+          <ul>
+            <li>Português Brasileiro</li>
+            <li>Inglês</li>
+          </ul>
+        </NavDropdown>
+        }
+          
+          
         </ul>
         
         <div className={styles.main}>
@@ -63,20 +67,37 @@ export default function Navbar({children, ...restProps}) {
             <Image src="/tramanda-logo-dark.svg" layout='fill'></Image>
           </div>
           <div className={styles.menu}>
-            <Link href="/">Gifts</Link>
-            <Link href="/">What's New</Link>
-            <Link href="/">Men</Link>
-            <Link href="/">Women</Link>
-            <Link href="/">Children</Link>
-            <Link href="/">About</Link>
+            <Link href="/">GIFTS</Link>
+            <Link href="/">WHAT'S NEW</Link>
+            <Link href="/">MEN</Link>
+            <Link href="/">WOMEN</Link>
+            <Link href="/">CHILDREN</Link>
+            <Link href="/">ABOUT</Link>
           </div>
         </div>
-        <div className={styles.userArea}>
-          <p>Sign In</p>
-          <p>Bag</p>
-          <div className={styles.searchButton}>
-          </div>
-        </div>
+        <ul className={styles.rightNav}>
+          <NavDropdown title="Bag">
+            <ul>
+              <li>Wave Logo T-Shirt</li>
+              <li>Wave Stripe T-Shirt</li>
+            </ul>
+          </NavDropdown>
+          <NavDropdown title="Sign In">
+            <ul>
+              <li>Register</li>
+            </ul>
+          </NavDropdown>
+          <NavDropdown title="Favourites">
+            <ul>
+              <li>Wave Stripe T-Shirt</li>
+            </ul>
+          </NavDropdown>
+          
+          <li>
+            <div className={styles.searchButton}>
+            </div>
+          </li>
+        </ul>
       </nav>
     );
 }

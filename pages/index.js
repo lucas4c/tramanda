@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import Navbar from '../components/navbar'
+import Navbar from '../components/Navbar'
+import Jumbotron from '../components/Jumbotron'
 import styles from '../styles/Home.module.css'
 import Image from 'next/image'
 
@@ -12,9 +13,7 @@ export default function Home() {
         <link rel="icon" href="/tramanda-logo-dark.svg" />
       </Head>
       <Navbar></Navbar>
-      <main>
-        <Image src="/beach.jpg" layout="fill"></Image>
-      </main>
+      <Jumbotron></Jumbotron>
       
     </div>
   )
